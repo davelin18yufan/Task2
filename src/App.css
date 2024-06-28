@@ -1,0 +1,129 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.calendar {
+  width: 350px;
+  height: 240px;
+  font-size: 16px;
+  /* padding: 0 0.5rem 0.5rem 0.5rem; */
+}
+
+.calendar-header {
+  width: 100%;
+  height: 44px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.calendar-body {
+  display: flex;
+  flex-direction: column;
+
+  & .row {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  & .column {
+    width: 50px;
+    height: 36px;
+    place-content: center;
+    border-radius: 8px;
+    cursor: pointer;
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+
+    &:not(.selected-range):hover {
+      background-color: #e6e6e6;
+    }
+
+    &.dayBtn:active,
+    &.dayBtn:focus,
+    &.dayBtn:focus-visible {
+      background-color: #006edc;
+      color: #fff000;
+    }
+
+    &:disabled {
+      color: #757575;
+      background-color: inherit;
+      cursor: not-allowed;
+      &:active {
+        background: inherit;
+      }
+      &:hover {
+        background: none
+      }
+    }
+  }
+}
+
+/* increase specificity */
+.dayBtn.selected,
+.dayBtn.selected-range {
+  background-color: #006edc !important;
+  color: #fff000 !important;
+}
+
+.month-select {
+  width: 44px;
+  height: 44px;
+  place-content: center;
+  border-radius: 8px;
+  background-color: white; /* default */
+  &:hover {
+    background-color: #e6e6e6;
+    cursor: pointer;
+  }
+}
+
+.today {
+  background-color: #ffff76;
+}
+
+.calendar-footer {
+  font-weight: 800;
+  text-align: center;
+  & .duration {
+    color: #006edc;
+  }
+}
+
+.note {
+  margin-bottom: 2rem;
+  text-align: start;
+  & h3{
+    text-align: center
+  }
+}
+.checked-list {
+  list-style: none;
+  padding: 0;
+}
+
+.checked-item {
+  position: relative;
+  padding-left: 25px;
+  margin: 10px 0;
+  cursor: pointer;
+  &.unchecked::before {
+    content: " ";
+  }
+}
+
+.checked-item::before {
+  content: "✔";
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 18px;
+  color: green;
+}
