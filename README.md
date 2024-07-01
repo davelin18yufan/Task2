@@ -14,3 +14,7 @@
 4. Run on localhost
    ```bash
    npm run dev
+   ```
+5. Run unit test
+   ```bash
+   npm run test
